@@ -14,8 +14,7 @@ device produced by [Grinn sp. z o.o.][Grinn]
 
     git clone https://github.com/DannyKerstens/Grinn_LCD.git
 ### Apply patch
-
-    Add the 0004-Fix-ILI2117support-ili210x.patch file to the folder path: Buildroot-2019.08/package/patch.
+Add the 0004-Fix-ILI2117support-ili210x.patch file to the folder path: Buildroot-2019.08/package/patch.
 ### Configure buildroot to use customizations from this repository
 
     cd buildroot-2019.08
