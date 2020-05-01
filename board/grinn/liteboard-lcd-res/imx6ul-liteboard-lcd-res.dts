@@ -118,8 +118,8 @@
 	
 	pinctrl_touchscreen: touchscreen {
 		fsl,pins = <    
-            MX6UL_PAD_ENET2_TX_EN__GPIO2_IO13        0x000010B0
-        >;
+            		MX6UL_PAD_ENET2_TX_EN__GPIO2_IO13        0x000010B0
+       	 	>;
 	}; 
 };
 
@@ -130,32 +130,31 @@
         status = "okay";
 
         mcp23008: mcp230008@20 {
-            compatible = "microchip,mcp23008";
-            gpio-controller;
-            #gpio-cells = <2>;
-            reg = <0x20>;
+        	compatible = "microchip,mcp23008";
+           	 gpio-controller;
+           	 #gpio-cells = <2>;
+          	  reg = <0x20>;
 			
-            lcd_en {
-                    gpio-hog;
-                    gpios = <7 0>;
-                    output-high;
-                    line-name = "lcd-en";
-                };
+           	 lcd_en {
+             		gpio-hog;
+              	      	gpios = <7 0>;
+              	      	output-high;
+          		line-name = "lcd-en";
+             	};
         };
             
-		touchscreen@26 {
-			compatible = "ilitek,ili2117";
-			reg = <0x26>;
-			pinctrl-names = "default";
-			pinctrl-0 = <&pinctrl_touchscreen>; 
-			interrupt-parent = <&gpio2>;
-			interrupts = <13 0>;
-			gpios =<&gpio2 45 GPIO_ACTIVE_LOW>;
-			status = "okay";        
+	touchscreen@26 {
+		compatible = "ilitek,ili2117";
+		reg = <0x26>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_touchscreen>; 
+		interrupt-parent = <&gpio2>;
+		interrupts = <13 0>;
+		gpios =<&gpio2 45 GPIO_ACTIVE_LOW>;
+		status = "okay";        
 	};
             
 };
-
 
 &pwm2 {
 	pinctrl-names = "default";
