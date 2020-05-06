@@ -109,7 +109,7 @@
 
 	pinctrl_touchscreen: touchscreen {
         fsl,pins = <    
-			MX6UL_PAD_JTAG_MOD__GPIO1_IO10             0x0000B0A0
+			MX6UL_PAD_ENET2_TX_EN__GPIO2_IO13        0x000010B0
 		>;
     };
 };
@@ -134,16 +134,16 @@
 		};
 	};
 	
-    touchscreen@26 {
-		compatible = "ilitek,ili2117";
-        reg = <0x26>;
-		pinctrl-names = "default";
-		pinctrl-0 = <&pinctrl_touchscreen>; 
-		interrupt-parent = <&gpio1>;
-		interrupts = <10 0>;
-		gpios =<&gpio1 10 GPIO_ACTIVE_LOW>;
-		status = "okay";        
-    };
+  	touchscreen@26 {
+           	compatible = "ilitek,ili2117";
+                reg = <0x26>;
+                pinctrl-names = "default";
+                pinctrl-0 = <&pinctrl_touchscreen>; 
+                interrupt-parent = <&gpio1>;
+                interrupts = <10 0>;
+                gpios =<&gpio1 10 GPIO_ACTIVE_LOW>;
+                status = "okay";           
+   	 };
 	
 };
 
