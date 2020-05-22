@@ -1,0 +1,13 @@
+#!/bin/sh
+
+echo -e '\033[?17;0;0c' > /dev/tty0
+clear >/dev/tty0 
+echo 7 > /sys/class/backlight/backlight/brightness
+
+export TSLIB_TSDEVICE=/dev/input/event1
+export TSLIB_TSEVENTTYPE=INPUT
+export TSLIB_CONFFILE=/etc/ts.conf
+export TSLIB_CALIBFILE=/etc/pointercal
+
+	clear >/dev/tty0 ; fbv /etc/media/skalarLogo.png >/dev/null &
+	sleep 3
