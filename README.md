@@ -1,7 +1,7 @@
 # Grinn LCD Example
 
 This repository contains various examples for [Buildroot][Buildroot] and [liteSOM][liteSOM]
-device produced by [Grinn sp. z o.o.][Grinn]
+device produced by [Grinn sp. z o.o.][Grinn] edited for Skalar purposes.
 
 ## How to setup project with Grinn examples?
 
@@ -19,7 +19,7 @@ device produced by [Grinn sp. z o.o.][Grinn]
     cd buildroot-2019.08
     make BR2_EXTERNAL=/tmp/Grinn_LCD list-defconfigs
 
-where `/tmp/Grinn_LCD` should point to the repository cloned in the 2nd step.
+where `/tmp/Grinn_LCD` should point to the repository cloned in the 2nd step.(example: /home/<username>/Grinn_LCD)
 
 Target `list-defconfigs` shows list of available _defconfigs_. After _built-in configs_ you 
 should see configs provided by the external customizations (like [Grinn examples][Grinn examples]).
@@ -46,7 +46,7 @@ should see configs provided by the external customizations (like [Grinn examples
 
     make all
 
-When the build is finished you can load the build on a sd card.
+When the build is finished you can load the build on a sd card. be adviced this can take some time based on your computer.
 
 	sudo dd if=output/images/sdcard.img of=/dev/<SD-CARD> bs=4M
 	
@@ -68,6 +68,21 @@ It should look something like this:
 
 In this case the sd card is located at mmcblk0. In most cases it is located under sdb.
 
+for information on loading the image on the internal memory i refer to the following tutorial:
+
+https://wiki.grinn-global.com/doku.php?id=litesom:buildroot:qa
+
+### Debugging
+
+For the debugging of the litesom you will have to connect the board with a micro USB cable to your desktop. Open a serial port with an application like PuTTY. check wich com port to use and set the baud rate to 115200.
+
+![serial](https://user-images.githubusercontent.com/64635066/82794269-7be09e80-9e72-11ea-9be9-8049fc9e89f4.PNG)
+
+If you did everything correctly you wil have a startup log of the litesom on PuTTY. At the end of the log it will ask for a password. By default this password is root.
+
+![Capture](https://user-images.githubusercontent.com/64635066/82794593-00cbb800-9e73-11ea-86dc-4dd3507c1167.PNG)
+
+Once your logged in you can find some test application in the folder /usr/bin.
 ## External links
 
 * Grinn home page: http://grinn-global.com
