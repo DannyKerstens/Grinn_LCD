@@ -19,7 +19,7 @@ device produced by [Grinn sp. z o.o.][Grinn] edited for Skalar purposes.
     cd buildroot-2019.08
     make BR2_EXTERNAL=/tmp/Grinn_LCD list-defconfigs
 
-where `/tmp/Grinn_LCD` should point to the repository cloned in the 2nd step.(example: /home/<username>/Grinn_LCD)
+where `/tmp/Grinn_LCD` should point to the repository cloned in the 2nd step.(example: /home/username/Grinn_LCD)
 
 Target `list-defconfigs` shows list of available _defconfigs_. After _built-in configs_ you 
 should see configs provided by the external customizations (like [Grinn examples][Grinn examples]).
