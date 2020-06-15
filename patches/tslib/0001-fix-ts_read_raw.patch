@@ -1,0 +1,15 @@
+--- a/src/ts_read_raw.c	2020-06-12 11:01:27.968261000 +0200
++++ b/src/ts_read_raw_NEW.c	2020-06-12 11:52:33.858486851 +0200
+@@ -27,6 +27,12 @@
+ 	int i;
+ #endif
+ 	int result = ts->list_raw->ops->read(ts->list_raw, samp, nr);
++	if (samp->x > 0 || samp->y > 0){
++		samp->pressure = 255;
++	}
++	else if (samp->x == 0 && samp->y ==0){
++		samp->pressure = 0;
++	}
+ 
+ #ifdef DEBUG
+ 	for (i = 0; i < result; i++) {

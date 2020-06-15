@@ -1,0 +1,19 @@
+--- a/src/ts_read.c	2019-05-18 22:23:11.000000000 +0200
++++ b/src/ts_read.c	2020-06-12 12:32:23.508884584 +0200
+@@ -28,7 +28,15 @@
+ 	int i;
+ #endif
+ 
+-	result = ts->list->ops->read(ts->list, samp, nr);
++	result = ts->list_raw->ops->read(ts->list_raw, samp, nr);
++	if (samp->x > 0 || samp->y > 0){
++		samp->pressure = 255;
++		samp->x = 0.234375 * samp->x;
++		samp->y = 0.1328125 * samp->y;
++	}
++	else if (samp->x == 0 && samp->y ==0){
++		samp->pressure = 0;
++	}
+ #ifdef DEBUG
+ 	for (i = 0; i < result; i++) {
+ 		fprintf(stderr, "TS_READ----> x = %d, y = %d, pressure = %d\n",
